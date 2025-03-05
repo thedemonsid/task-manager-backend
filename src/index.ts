@@ -2,10 +2,12 @@ import express from "express";
 import userRoutes from "./routes/userRoutes";
 import taskRoutes from "./routes/taskRoutes";
 import dashboardRoutes from "./routes/dashboardRoutes";
+import cors from "cors";
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
+app.use(cors());
 app.use(express.json());
 //* Request logger middleware - logs whenever someone hits the backend
 app.use((req, res, next) => {

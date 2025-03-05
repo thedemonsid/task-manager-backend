@@ -21,8 +21,8 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   taskController.deleteTask(req, res);
 });
-router.post("/:id/complete", (req, res) => {
-  taskController.completeTask(req, res);
-});
+// router.post("/:id/complete", (req, res) => {
+//   taskController.completeTask(req, res);
+// });
 
 export default router;

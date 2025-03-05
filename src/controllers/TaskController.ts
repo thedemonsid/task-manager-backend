@@ -187,29 +187,29 @@ export class TaskController {
     }
   }
 
-  async completeTask(req: Request, res: Response) {
-    try {
-      const { id } = req.params;
-      const userId = req.user!.id;
+  // async completeTask(req: Request, res: Response) {
+  //   try {
+  //     const { id } = req.params;
+  //     const userId = req.user!.id;
 
-      const task = await this.taskService.getTaskById(id);
-      if (!task) {
-        return res.status(404).json({ error: "Task not found" });
-      }
+  //     const task = await this.taskService.getTaskById(id);
+  //     if (!task) {
+  //       return res.status(404).json({ error: "Task not found" });
+  //     }
 
-      if (task.toJSON().userId !== userId) {
-        return res.status(403).json({ error: "Not authorized" });
-      }
+  //     if (task.toJSON().userId !== userId) {
+  //       return res.status(403).json({ error: "Not authorized" });
+  //     }
 
-      const updatedTask = await this.taskService.markTaskAsComplete(id);
-      return res.json(updatedTask.toJSON());
-    } catch (error) {
-      return res.status(500).json({
-        error: "Failed to complete task",
-        details: error instanceof Error ? error.message : String(error),
-      });
-    }
-  }
+  //     const updatedTask = await this.taskService.markTaskAsComplete(id);
+  //     return res.json(updatedTask.toJSON());
+  //   } catch (error) {
+  //     return res.status(500).json({
+  //       error: "Failed to complete task",
+  //       details: error instanceof Error ? error.message : String(error),
+  //     });
+  //   }
+  // }
 
   async updateTask(req: Request, res: Response) {
     try {
