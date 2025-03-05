@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { UserService } from "../services/UserService";
 import * as z from "zod";
 
-// Input validation schemas with detailed error messages
 const RegisterSchema = z.object({
   email: z
     .string({
@@ -48,11 +47,9 @@ export class UserController {
 
   async register(req: Request, res: Response) {
     try {
-      // Validate input using Zod
       const validationResult = RegisterSchema.safeParse(req.body);
 
       if (!validationResult.success) {
-        // Format and return validation errors
         const formattedErrors = validationResult.error.format();
         return res.status(400).json({
           error: "Validation failed",
@@ -82,11 +79,9 @@ export class UserController {
 
   async login(req: Request, res: Response) {
     try {
-      // Validate input using Zod
       const validationResult = LoginSchema.safeParse(req.body);
 
       if (!validationResult.success) {
-        // Format and return validation errors
         const formattedErrors = validationResult.error.format();
         return res.status(400).json({
           error: "Validation failed",

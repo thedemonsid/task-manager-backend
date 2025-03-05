@@ -5,7 +5,7 @@ import { authMiddleware } from "../middleware/auth.middleware";
 const router = express.Router();
 const userController = new UserController();
 
-// Public routes
+//* Public routes
 router.post("/register", (req, res) => {
   userController.register(req, res);
 });
@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
   userController.login(req, res);
 });
 
-// Protected routes
+//* Protected routes
 router.get("/me", authMiddleware, (req, res) => {
   userController.getCurrentUser(req, res);
 });

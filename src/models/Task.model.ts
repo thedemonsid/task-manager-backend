@@ -27,9 +27,7 @@ export class TaskModel {
     return this.task.endTime;
   }
 
-  // Business logic methods
   calculateTimeToFinish(): number {
-    // Return time in hours
     return (
       (this.task.endTime.getTime() - this.task.startTime.getTime()) /
       (1000 * 60 * 60)
@@ -52,7 +50,6 @@ export class TaskModel {
     );
   }
 
-  // Convert to DTO/response object
   toJSON() {
     return {
       id: this.task.id,
